@@ -38,7 +38,7 @@ function Users() {
             <p className="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                 For more information about DataTables, please visit the <a target="_blank"
                     href="https://datatables.net">official DataTables documentation</a>.</p>
-            <Link to="/portal/Users/Create" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
+            <Link to="/portal/Users/CreateUser" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
                 className="fas fa-download fa-sm text-white-50"></i> Create User</Link>
 
             <div className="card shadow mb-4">
@@ -82,7 +82,7 @@ function Users() {
                                     <td>{user.StartDate}</td>
                                     <td>${user.salary}</td>
                                     <td>
-                                        <button className='btn btn-primary mr-1'>View</button>
+                                        <Link to={`/portal/Users/ViewUser/${user.id}`} className='btn btn-primary mr-1'>View</Link>
                                         <button className='btn btn-info mr-1'>Edit</button>
                                         <button className='btn btn-danger mr-1'>Delete</button>
                                     </td>

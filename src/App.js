@@ -10,6 +10,7 @@ import {
 import CreateUser from './CreateUser';
 import Portal from './Portal';
 import Login from './Login';
+import ViewUser from './ViewUser';
 
 
 
@@ -22,7 +23,8 @@ function App() {
         <Route path='/Portal' element={<Portal />} >
           <Route path="Dashboard" element={<Dashboard />} />
           <Route path="Users" element={<Users />} />
-          <Route path="Users/Create" element={<CreateUser />} />
+          <Route path="Users/CreateUser " element={<CreateUser />} />
+          <Route path="Users/ViewUser/:id" element ={<ViewUser/>}/>
           <Route path="Products" element={<Products />} />
         </Route>
       </Routes>
