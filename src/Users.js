@@ -8,7 +8,7 @@ function Users() {
             <p className="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                 For more information about DataTables, please visit the <a target="_blank"
                     href="https://datatables.net">official DataTables documentation</a>.</p>
-            <Link to="/portal/Users/Create" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            <Link to="/portal/Users/Create" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
                 className="fas fa-download fa-sm text-white-50"></i> Create User</Link>
 
             <div className="card shadow mb-4">
