@@ -2,6 +2,36 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 function Users() {
+    let users = [
+        {
+            id:1,
+            name:"Tiger Nixon",
+            position:"System Architect",
+            office: "Edinburgh",
+            Age:61,
+            StartDate:"2011/04/25",
+            salary:"320,800", 
+        },
+        {
+            id:2,
+            name:"Garrett Winters",
+            position:"Accountant",
+            office: "Tokyo",
+            Age:63,
+            StartDate:"2011/07/25",
+            salary:"170,750", 
+        },
+        {
+            id:3,
+            name:"Ashton Cox",
+            position:"Junior Technical Author",
+            office: "San Francisco",
+            Age:66,
+            StartDate:"2009/01/12",
+            salary:"86,000", 
+        },
+
+    ]
     return (
         <>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -26,6 +56,8 @@ function Users() {
                                     <th>Age</th>
                                     <th>Start date</th>
                                     <th>Salary</th>
+                                    <th>Action</th>
+                                    
                                 </tr>
                             </thead>
                             <tfoot>
@@ -36,39 +68,33 @@ function Users() {
                                     <th>Age</th>
                                     <th>Start date</th>
                                     <th>Salary</th>
+                                    <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
+                                {
+                                users.map((user) => {
+                                    return <tr>
+                                    <td>{user.name}</td>
+                                    <td>{user.position}</td>
+                                    <td>{user.office}</td>
+                                    <td>{user.Age}</td>
+                                    <td>{user.StartDate}</td>
+                                    <td>${user.salary}</td>
+                                    <td>
+                                        <button className='btn btn-primary mr-1'>View</button>
+                                        <button className='btn btn-info mr-1'>Edit</button>
+                                        <button className='btn btn-danger mr-1'>Delete</button>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011/07/25</td>
-                                    <td>$170,750</td>
-                                </tr>
-                                <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009/01/12</td>
-                                    <td>$86,000</td>
-                                </tr>
+                                })
+                                }
+                                                    
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

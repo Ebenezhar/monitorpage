@@ -55,11 +55,10 @@ function Products() {
     {
       id:8,
       name: "GRAVITY Building Blocks for Kids, Blocks for Kids, Puzzles Games 200 Pcs Bricks Toys Sets with Wheel",
-      price: "Mugundhan",
+      price: 900,
       age: "3 months - 7 years",
       img:"https://images.unsplash.com/photo-1611604548018-d56bbd85d681?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    },
-   
+    },   
   ]
 
   return (
