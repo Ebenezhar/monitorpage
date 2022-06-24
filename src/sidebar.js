@@ -18,14 +18,14 @@ function Sidebar() {
 
 
             <li className="nav-item active">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/Portal/Dashboard">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </Link>
             </li>
 
             <li className="nav-item">
-                <Link className="nav-link" to="/users">
+                <Link className="nav-link" to="/portal/Users">
                     <i className="fas fa-fw fa-chart-area"></i>
                     <span>Users</span>
                 </Link>
@@ -33,7 +33,7 @@ function Sidebar() {
 
 
             <li className="nav-item">
-                <Link className="nav-link" to="/Products">
+                <Link className="nav-link" to="/Portal/Products">
                     <i className="fas fa-fw fa-table"></i>
                     <span>Products</span>
                 </Link>

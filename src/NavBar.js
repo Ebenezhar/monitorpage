@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 function NavBar() {
     return (
@@ -226,9 +227,9 @@ function NavBar() {
                     <div className="topbar-divider d-none d-sm-block" />
                     {/* Nav Item - User Information */}
                     <li className="nav-item dropdown no-arrow">
-                        <a
+                        <Link
                             className="nav-link dropdown-toggle"
-                            href="#"
+                            to='/'
                             id="userDropdown"
                             role="button"
                             data-toggle="dropdown"
@@ -236,13 +237,13 @@ function NavBar() {
                             aria-expanded="false"
                         >
                             <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-                                Douglas McGee
+                                Logout
                             </span>
                             <img
                                 className="img-profile rounded-circle"
-                                src="img/undraw_profile.svg"
+                                src="https://media.istockphoto.com/photos/jack-russell-terrier-in-round-red-sunglasses-looks-at-camera-on-blue-picture-id1318775674?b=1&k=20&m=1318775674&s=170667a&w=0&h=aDvgmEltwN4JsCyaOJzKm9OiGadxwxVOqJ6zBIFBTgc="
                             />
-                        </a>
+                        </Link>
                         {/* Dropdown - User Information */}
                         <div
                             className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
