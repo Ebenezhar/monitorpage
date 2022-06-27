@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import Dashboard from './Dashboard';
+import Users from './Users';
+import Products from './Products';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import CreateUser from './CreateUser';
+import Portal from './Portal';
+import Login from './Login';
+import ViewUser from './ViewUser';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/Portal' element={<Portal />} >
+          <Route path="Dashboard" element={<Dashboard />} />
+          <Route path="Users" element={<Users />} />
+          <Route path="Users/CreateUser" element={<CreateUser />} />
+          <Route path="Users/ViewUser/:id" element ={<ViewUser/>}/>
+          <Route path="Products" element={<Products />} />
+        </Route>
+      </Routes>
+    </BrowserRouter >
+
+
   );
 }
 
