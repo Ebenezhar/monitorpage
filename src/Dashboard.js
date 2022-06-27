@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './Card.js';
 
 function Dashboard() {
+
     let cards = [
         {
             name: 'Earnings (Monthly)',
@@ -37,9 +38,10 @@ function Dashboard() {
             </div>
             <div class="row">
                 {
-                    cards.map((card) => { return <Card data={card} /> })                    
+                    cards.map((card) => { return <Card data={card} /> })
                 }
             </div>
+          
         </>
     )
 }

@@ -23,7 +23,7 @@ function App() {
         <Route path='/Portal' element={<Portal />} >
           <Route path="Dashboard" element={<Dashboard />} />
           <Route path="Users" element={<Users />} />
-          <Route path="Users/CreateUser " element={<CreateUser />} />
+          <Route path="Users/CreateUser" element={<CreateUser />} />
           <Route path="Users/ViewUser/:id" element ={<ViewUser/>}/>
           <Route path="Products" element={<Products />} />
         </Route>
