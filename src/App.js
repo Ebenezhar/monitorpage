@@ -11,6 +11,7 @@ import CreateUser from './CreateUser';
 import Portal from './Portal';
 import Login from './Login';
 import ViewUser from './ViewUser';
+import AddProduct from './AddProduct';
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="Users/CreateUser" element={<CreateUser />} />
           <Route path="Users/ViewUser/:id" element ={<ViewUser/>}/>
           <Route path="Products" element={<Products />} />
+          <Route path="Products/AddProducts" element={<AddProduct />} />
         </Route>
       </Routes>
     </BrowserRouter >

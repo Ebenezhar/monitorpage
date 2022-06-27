@@ -3,3 +3,6 @@
 box-shadow: 0 10px 20px rgba(213, 85, 207, 0.12), 0 4px 8px rgba(187, 63, 163, 0.06);
 }
 
+.error-border{
+  border: 1 px solid red !important; 
+}

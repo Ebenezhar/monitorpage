@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductCard from './productCard';
+import { Link } from "react-router-dom";
 
 function Products() {
   let products = [
@@ -62,14 +63,16 @@ function Products() {
   ]
 
   return (
-    <div className='container'>
+    <div className='container'> 
       <div className='row'>
         {
           products.map((product) => {
             return (<ProductCard data={product}/>)
           })
         }
-
+      </div>
+      <div  style={{textAlign:'center'}}>
+      <Link to="/portal/products/AddProducts" className="btn btn-primary mt-5"> Add Products</Link>
       </div>
     </div>
   )
