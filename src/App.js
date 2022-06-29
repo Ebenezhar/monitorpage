@@ -12,6 +12,7 @@ import Portal from './Portal';
 import Login from './Login';
 import ViewUser from './ViewUser';
 import AddProduct from './AddProduct';
+import EditUser from './EditUser';
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="Users" element={<Users />} />
           <Route path="Users/CreateUser" element={<CreateUser />} />
           <Route path="Users/ViewUser/:id" element ={<ViewUser/>}/>
+          <Route path="Users/EditUser/:id" element ={<EditUser/>}/>
           <Route path="Products" element={<Products />} />
           <Route path="Products/AddProducts" element={<AddProduct />} />
         </Route>

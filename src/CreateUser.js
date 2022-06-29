@@ -1,4 +1,3 @@
-import { Formik } from "formik";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -130,7 +129,7 @@ function CreateUser() {
             }
           </div>
           <div className="col-lg-6">
-            <input type={'submit'} value='Submit' className="btn btn-primary mt-5" disabled={!formik.isValid} />
+            <input type={'submit'} value='Submit' className="btn btn-primary mt-5" disabled={!formik.isValid && isLoading} />
           </div>
         </div>
       </form>

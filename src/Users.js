@@ -6,18 +6,22 @@ function Users() {
 
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        let fetchData = async () => {
-           let userData = await axios.get("https://629040b2665ea71fe12f668b.mockapi.io/employee")
-           setUsers(userData.data);
-        }
         fetchData();
-    }, [])  
-
+    }, []);
     let fetchData = async () => {
-        await axios.get("https://629040b2665ea71fe12f668b.mockapi.io/employee")
-    }
-    fetchData();
-    
+        let userData = await axios.get("https://629040b2665ea71fe12f668b.mockapi.io/employee")
+        setUsers(userData.data);
+     }
+
+    let handleDelete = async(id) => {
+        console.log(id);
+        let ask = window.confirm('Are you sure you want to delete this employee?');
+        if(ask){
+            await axios.delete(`https://629040b2665ea71fe12f668b.mockapi.io/employee/${id}`);
+            fetchData();
+        }
+    }  
+
     return (
         <>  
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -68,8 +72,8 @@ function Users() {
                                     <td>${user.salary}</td>
                                     <td>
                                         <Link to={`/portal/Users/ViewUser/${user.id}`} className='btn btn-primary mr-1'>View</Link>
-                                        <button className='btn btn-info mr-1'>Edit</button>
-                                        <button className='btn btn-danger mr-1'>Delete</button>
+                                        <Link to ={`/portal/Users/EditUser/${user.id}`} className='btn btn-info mr-1'>Edit</Link>
+                                        <button onClick={() => handleDelete(user.id)} className='btn btn-danger mr-1'>Delete</button>
                                     </td>
                                 </tr>
                                 })
