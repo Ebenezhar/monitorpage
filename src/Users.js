@@ -1,45 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Users() {
-    let users = [
-        {
-            id:1,
-            name:"Tiger Nixon",
-            position:"System Architect",
-            office: "Edinburgh",
-            Age:61,
-            StartDate:"2011/04/25",
-            salary:"320,800", 
-        },
-        {
-            id:2,
-            name:"Garrett Winters",
-            position:"Accountant",
-            office: "Tokyo",
-            Age:63,
-            StartDate:"2011/07/25",
-            salary:"170,750", 
-        },
-        {
-            id:3,
-            name:"Ashton Cox",
-            position:"Junior Technical Author",
-            office: "San Francisco",
-            Age:66,
-            StartDate:"2009/01/12",
-            salary:"86,000", 
-        },
 
-    ]
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        let fetchData = async () => {
+           let userData = await axios.get("https://629040b2665ea71fe12f668b.mockapi.io/employee")
+           setUsers(userData.data);
+        }
+        fetchData();
+    }, [])  
+
+    let fetchData = async () => {
+        await axios.get("https://629040b2665ea71fe12f668b.mockapi.io/employee")
+    }
+    fetchData();
+    
     return (
-        <>
+        <>  
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
             <p className="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                 For more information about DataTables, please visit the <a target="_blank"
                     href="https://datatables.net">official DataTables documentation</a>.</p>
-            <Link to="/portal/Users/CreateUser" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
-                className="fas fa-download fa-sm text-white-50"></i> Create User</Link>
+            <Link to="/portal/Users/CreateUser" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i class="fa-solid fa-user"></i>   Create User</Link>
 
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
@@ -57,7 +42,7 @@ function Users() {
                                     <th>Start date</th>
                                     <th>Salary</th>
                                     <th>Action</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tfoot>
@@ -78,8 +63,8 @@ function Users() {
                                     <td>{user.name}</td>
                                     <td>{user.position}</td>
                                     <td>{user.office}</td>
-                                    <td>{user.Age}</td>
-                                    <td>{user.StartDate}</td>
+                                    <td>{user.age}</td>
+                                    <td>{user.startDate}</td>
                                     <td>${user.salary}</td>
                                     <td>
                                         <Link to={`/portal/Users/ViewUser/${user.id}`} className='btn btn-primary mr-1'>View</Link>
@@ -89,7 +74,7 @@ function Users() {
                                 </tr>
                                 })
                                 }
-                                                    
+
                             </tbody>
                         </table>
                     </div>
