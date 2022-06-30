@@ -1,44 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import { useParams } from 'react-router-dom';
 
 function ViewUser() {
-    let {id} = useParams();
-    let users = [
-        {
-            id:1,
-            name:"Tiger Nixon",
-            position:"System Architect",
-            office: "Edinburgh",
-            Age:61,
-            StartDate:"2011/04/25",
-            salary:"320,800", 
-        },
-        {
-            id:2,
-            name:"Garrett Winters",
-            position:"Accountant",
-            office: "Tokyo",
-            Age:63,
-            StartDate:"2011/07/25",
-            salary:"170,750", 
-        },
-        {
-            id:3,
-            name:"Ashton Cox",
-            position:"Junior Technical Author",
-            office: "San Francisco",
-            Age:66,
-            StartDate:"2009/01/12",
-            salary:"86,000", 
-        },
+    let { id } = useParams();
+    console.log(id);
 
-    ]
-  return (
-    <>
-        <div>ViewUser {id}</div>
-        <div>Name: {users[id-1].name}</div>
-    </>
-  )
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        let fetchData = async () => {
+            let userData = await axios.get(`https://629040b2665ea71fe12f668b.mockapi.io/employee/${id}`)
+            setUsers(userData.data);
+            console.log("Data", userData);
+        }
+        fetchData();    
+    }, [])
+
+
+    return (
+        <>
+
+            <div className='container'>
+                <h2>User Details</h2>
+                <h4>User Id: {id}</h4>
+                <h4>Name: {users.name}</h4>
+                <h4>Position: {users.position}</h4>
+                <h4>Age: {users.age}</h4>
+                <h4>Office: {users.office}</h4>
+                <h4>Start Date: {users.startDate}</h4>
+                <h4>Salary: {users.salary}</h4>
+            </div>
+
+        </>
+    )
 }
 
 export default ViewUser;
