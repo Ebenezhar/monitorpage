@@ -6,14 +6,25 @@ import axios from 'axios';
 function Products() {
   
   let [products,setProducts] = useState([]);
+  console.log(products);  
 
   useEffect(() => {
-   let fetchData = async() => {
+   fetchData();
+  }, [])
+  let fetchData = async() => {
     let userData = await axios.get("https://62c29ac6ff594c65675fe6f0.mockapi.io/products");
     setProducts(userData.data);
    }
-   fetchData();
-  }, [])
+  
+
+  let deletefromList = async (id) =>{
+    console.log("id",id);
+        let ask = window.confirm('Are you sure you want to delete?');
+        if(ask){
+            await axios.delete(`https://62c29ac6ff594c65675fe6f0.mockapi.io/products/${id}`);
+            fetchData();
+        }
+  }
   
 
   // let products = [
@@ -80,7 +91,7 @@ function Products() {
       <div className='row'>
         {
           products.map((product) => {
-            return (<ProductCard data={product}/>)
+            return (<ProductCard data={product} deletefromList = {deletefromList}/>)
           })
         }
       </div>

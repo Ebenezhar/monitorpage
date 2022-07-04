@@ -12,7 +12,6 @@ function Users() {
         let userData = await axios.get("https://629040b2665ea71fe12f668b.mockapi.io/employee")
         setUsers(userData.data);
      }
-
     let handleDelete = async(id) => {
         console.log(id);
         let ask = window.confirm('Are you sure you want to delete this employee?');
