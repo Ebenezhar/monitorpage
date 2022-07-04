@@ -78,7 +78,6 @@ function Users() {
                                 </tr>
                                 })
                                 }
-
                             </tbody>
                         </table>
                     </div>
