@@ -5,7 +5,7 @@ import axios from "axios";
 
 function CreateUser() {
   let navigation = useNavigate();
-  let [isLoading, setLoading] = useState(false)
+  let [isLoading, setLoading] = useState(false);
   let formik = useFormik({
     initialValues: {
       name: "",

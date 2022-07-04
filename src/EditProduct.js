@@ -1,16 +1,17 @@
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useFormik } from "formik";
 import axios from 'axios';
-import { useFormik } from 'formik';
-import React from 'react';
-import { useNavigate } from "react-router-dom";
 
-function AddProduct() {
+function EditProduct() {
+    let {id} = useParams();
     let navigation = useNavigate();
+    let [isLoading, setLoading] = useState(false)
     let formik = useFormik({
         initialValues: {
-            name: "",
-            price: "",
-            img: "",
-            age:"",
+            name:'',
+            price:'',
+            img:'',
         },
         validate: (values) => {
             let errors = {};
@@ -32,14 +33,26 @@ function AddProduct() {
             }
             return errors;
         },
-        onSubmit: async(values) => {
-            console.log(values);
-            await axios.post("https://62c29ac6ff594c65675fe6f0.mockapi.io/products",values)
-            navigation("/portal/products")
-        }
+        onSubmit: async (values) => {
+            try {
+                setLoading(true);
+                console.log("val",values);
+                await axios.put(`https://62c29ac6ff594c65675fe6f0.mockapi.io/products/${id}`, values);
+                navigation('/portal/Products')
+            }
+            catch (error) { }
+        },
     })
-    return (
-        <div className="container">
+    useEffect(() => {
+        let fetchData = async() => {
+            let userData = await axios.get(`https://62c29ac6ff594c65675fe6f0.mockapi.io/products/${id}`);
+            formik.setValues(userData.data);
+        }
+        fetchData();
+    },[])
+
+  return (
+    <div className="container">
             <form onSubmit={formik.handleSubmit}>
                 <div className="row">
                     <div className="col-lg-6">
@@ -81,7 +94,7 @@ function AddProduct() {
                 </div>
             </form>
         </div>
-    )
+  )
 }
 
-export default AddProduct;
+export default EditProduct
