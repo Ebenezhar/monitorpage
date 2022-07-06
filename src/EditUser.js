@@ -135,10 +135,10 @@ function EditUser() {
                             className="form-control" />
                         {
                             formik.errors.salary ? <span style={{ color: 'red' }}> {formik.errors.salary}</span> : null
-                        }
+                        } 
                     </div>
                     <div className="col-lg-6">
-                        <input type={'submit'} value='Submit' className="btn btn-primary mt-5" disabled={!formik.isValid && isLoading} />
+                        <input type={'submit'} value='Submit' className="btn btn-primary mt-5"  />
                     </div>
                 </div>
             </form>

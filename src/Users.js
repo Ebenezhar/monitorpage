@@ -27,7 +27,7 @@ function Users() {
             <p className="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                 For more information about DataTables, please visit the <a target="_blank"
                     href="https://datatables.net">official DataTables documentation</a>.</p>
-            <Link to="/portal/Users/CreateUser" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i class="fa-solid fa-user"></i>   Create User</Link>
+            <Link to="/portal/Users/CreateUser" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i className="fa-solid fa-user"></i>   Create User</Link>
 
             <div className="card shadow mb-4">
                 <div className="card-header py-3">

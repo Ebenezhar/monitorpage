@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Login() {
   return (
-    <div class=  "container">  
+    <div className=  "container">  
       {/* Hello world */}
       ;
       {/* Outer Row */}
